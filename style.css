@@ -1,18 +1,20 @@
 
 body {
   background-color:darkgoldenrod;
-  color: black;
 }
 
 .game-board {
   display: grid;
-  grid-template-columns: repeat(20, auto);
-  grid-template-rows: repeat(20, auto);
+  grid-template-columns: repeat(20, 20px);
+  grid-template-rows: repeat(20, 20px);
+  border-style: solid;
 }
 
 .cell {
   position: relative;
 }
+
+
 .inside {
   position: absolute;
   width: 100%;
