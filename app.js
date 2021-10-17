@@ -3,9 +3,10 @@
 
 
 /*---------------------------- letiables (state) ----------------------------*/
+let cells 
 let snake 
 let rat
-let snakePosition = []
+let snakePosition = [0, 1, 2, 3]
 let ratPosition
 let gameOver = false
 
@@ -17,7 +18,6 @@ let height = 20 //cells
 /*------------------------ Cached Element References ------------------------*/
 
 const gameBoard = document.querySelector('.game-board')
-const cells = document.querySelectorAll('.game-board .cell .inside')
 const gameStatus = document.querySelectorAll('#message')
 
 
@@ -31,9 +31,12 @@ const gameStatus = document.querySelectorAll('#message')
 //store cached elements
 //define required constants
 
+init()
 
-//build the grid for the game board in JS
-for (let i = 0; i < width * height; i++) {
+
+function init() {
+  
+  for (let i = 0; i < width * height; i++) {
 	const inside = document.createElement('div')
 	inside.classList.add('inside')
 
@@ -41,16 +44,20 @@ for (let i = 0; i < width * height; i++) {
   cell.classList.add('cell')
 	cell.appendChild(inside)
 	gameBoard.appendChild(cell)
+  }
+  cells = document.querySelectorAll('.game-board .cell .inside')
+  render()
 }
 
 
-//render snake onto board
 function render() {
   for (const i of snakePosition) {
     const snakeCell = cells[i]
     snakeCell.style.backgroundColor = 'black'
-  }
+  } 
 }
+
+//render snake onto board
 
 
 //render rat onto board
