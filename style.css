@@ -1,17 +1,21 @@
 
 body {
   background-color:darkgoldenrod;
+  height: 100%;
 }
 
 .game-board {
   display: grid;
   grid-template-columns: repeat(20, 20px);
   grid-template-rows: repeat(20, 20px);
-  border-style: solid;
+  
+
 }
 
 .cell {
   position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 

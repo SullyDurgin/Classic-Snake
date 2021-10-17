@@ -3,10 +3,11 @@
 
 
 /*---------------------------- letiables (state) ----------------------------*/
-let snake
+let snake 
 let rat
-let snakePosition
+let snakePosition = []
 let ratPosition
+let gameOver = false
 
 //game board size (number of cells in grid)
 //20x20 gameBoard = 400 cells
@@ -16,7 +17,8 @@ let height = 20 //cells
 /*------------------------ Cached Element References ------------------------*/
 
 const gameBoard = document.querySelector('.game-board')
-const cells = document.querySelectorAll(".game-board .cell .inside")
+const cells = document.querySelectorAll('.game-board .cell .inside')
+const gameStatus = document.querySelectorAll('#message')
 
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -33,11 +35,25 @@ const cells = document.querySelectorAll(".game-board .cell .inside")
 //build the grid for the game board in JS
 for (let i = 0; i < width * height; i++) {
 	const inside = document.createElement('div')
-	inside.setAttribute('class', 'inside')
+	inside.classList.add('inside')
 
 	const cell = document.createElement('div')
-	cell.setAttribute('class', 'cell')
+  cell.classList.add('cell')
 	cell.appendChild(inside)
-
 	gameBoard.appendChild(cell)
+}
+
+
+//render snake onto board
+function render() {
+  for (const i of snakePosition) {
+    const snakeCell = cells[i]
+    snakeCell.style.backgroundColor = 'black'
+  }
+}
+
+
+//render rat onto board
+function drawRat() {
+
 }
