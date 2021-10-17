@@ -6,8 +6,8 @@
 let cells 
 let snake 
 let rat
-let snakePosition = [0, 1, 2, 3]
-let ratPosition
+let snakePosition = [0, 1, 2, 3, 23, 24, 25 ]
+let ratPosition = [90]
 let gameOver = false
 
 //game board size (number of cells in grid)
@@ -55,12 +55,7 @@ function render() {
     const snakeCell = cells[i]
     snakeCell.style.backgroundColor = 'black'
   } 
-}
-
-//render snake onto board
-
-
-//render rat onto board
-function drawRat() {
-
+const ratCell = cells[ratPosition]
+ratCell.innerText = '🐀'
+  
 }
