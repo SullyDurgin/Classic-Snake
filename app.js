@@ -101,5 +101,16 @@ function startGame() {
 	]
 	direction = "right"
 	intervalTime = 1000
-	interval = setInterval(moveOutcome, intervalTime)
+	interval = setInterval(move, intervalTime)
 }
+
+// make new function move (that is what you picked in setInterval, in startGame)
+  // grab the head of the snake, like `const headPosition = snakePositions[0];`
+  // declare variables for newHeadX and newHeadY
+  // put an if statement for each direction that sets the values of newHeadX and newHeadY based on the 
+  // direction.
+  // for example if direction is left, `newHeadX = headPosition.x - 1; newHeadY = headPosition.y;`
+  // same for right, up and down, you're either adding or subtracting 1 from either X or Y.
+  // `snakePositions.unshift({ x: newHeadX, y: newHeadY });`
+  // `snakePositions.pop();`
+  // `render();`
