@@ -89,6 +89,9 @@ function init() {
 
 
 function render() {
+  for (let i = 0; i < width * height; i++) {
+		cells[i].style.removeProperty('background-color')
+	}
 	for (const segment of snakePositions) {
 		const cellIndex = segment.x + width * segment.y
 		const snakeCell = cells[cellIndex]
@@ -97,8 +100,7 @@ function render() {
 	const ratCellIndex = ratPosition.x + width * ratPosition.y
 	const ratCell = cells[ratCellIndex]
 	ratCell.innerText = '🐀'
-  currentIndex = 0
-  snake.forEach((index) => cells[index].classList.add('snakeCell'))
+
 }
 
 
