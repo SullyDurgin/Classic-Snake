@@ -98,6 +98,12 @@ function startGame() {
 		{ x: 7, y: 0 },
 		{ x: 8, y: 0 },
 		{ x: 9, y: 0 },
+		{ x: 10, y: 0 },
+		{ x: 11, y: 0 },
+		{ x: 12, y: 0 },
+		{ x: 13, y: 0 },
+		{ x: 14, y: 0 },
+		{ x: 15, y: 0 },
 	]
 	direction = 'right'
 	intervalTime = 500
@@ -125,12 +131,25 @@ function move() {
 		
 		newHeadY = headPosition.y + 1
 	}
+if (hitSelf(newHeadX, newHeadY)) {
+	gameOver()
+	return
+}
 
 	snakePositions.unshift({ x: newHeadX, y: newHeadY })
 	snakePositions.pop()
 	render()
 }
 
+  function hitSelf(x, y) {
+		for (let i = 1; i < snakePositions.length; i++) {
+			if (x == snakePositions[i].x && y == snakePositions[i].y) return true
+		}
+		return false
+	}
+
+function gameOver() {
+}
 
 // function hitBorder() {
 // 	let headPosition = snakePositions.length - 1 // leaves grid
@@ -146,12 +165,3 @@ function move() {
 //   return gameOver()
 // } 
 // }
-
-
-
-function hitSelf(x, y) {
-	for (let i = 2; i < snake.length; i++) {
-		if (x == snake[i].x && y == snake[i].y) return true
-	}
-	return false
-}
