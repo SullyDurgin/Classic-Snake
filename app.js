@@ -20,6 +20,7 @@ const gameStatus = document.querySelectorAll('#message')
 const gameButton = document.querySelector('button')
 
 /*----------------------------- Event Listeners -----------------------------*/
+gameButton.addEventListener('click', startGame)
 
 window.addEventListener('keydown', function (event) {
 	if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key))
@@ -48,8 +49,6 @@ window.addEventListener('keydown', function (event) {
 		return
 	}
 })
-
-gameButton.addEventListener('click', startGame)
 
 /*-------------------------------- Functions --------------------------------*/
 
@@ -100,13 +99,14 @@ function startGame() {
 		{ x: 14, y: 0 },
 		{ x: 15, y: 0 },
 	]
-	direction = 'right'
+	direction = 'left'
 	intervalTime = 500
 	interval = setInterval(move, intervalTime)
 	render()
 }
 
 function move() {
+	console.log(snakePositions)
 	const headPosition = snakePositions[0]
 	let newHeadX = headPosition.x
 	let newHeadY = headPosition.y
@@ -137,7 +137,10 @@ function hitSelf(x, y) {
 	return false
 }
 
-function gameOver() {}
+function gameOver() {
+	clearInterval(interval)
+	render()
+}
 
 function hitBorder(x, y) {
 	if (x < 0 || x > 19 || y < 0 || y > 19) return true
