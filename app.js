@@ -20,9 +20,12 @@ let height = 20 //cells
 
 const gameBoard = document.querySelector('.game-board')
 const gameStatus = document.querySelectorAll('#message')
+const gameButton = document.querySelector('button')
 
 
 /*----------------------------- Event Listeners -----------------------------*/
+
+
 
 window.addEventListener("keydown", function (event) { 
   if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key)) //move direction based on key pressed
@@ -51,6 +54,7 @@ if (event.key === 'ArrowDown') {
 }
 })
 
+gameButton.addEventListener('click', startGame)
 
 /*-------------------------------- Functions --------------------------------*/
 
@@ -96,7 +100,7 @@ function startGame() {
 		{ x: 9, y: 0 },
 	]
 	direction = 'right'
-	intervalTime = 1000
+	intervalTime = 500
 	interval = setInterval(move, intervalTime)
 	render()
 }
@@ -106,18 +110,18 @@ function move() {
 	let newHeadX = headPosition.x
 	let newHeadY = headPosition.y
 
-	if (direction == 'left') {
+	if (direction === 'left') {
 		newHeadX = headPosition.x - 1
     
-	} else if (direction == 'up') {
+	} else if (direction === 'up') {
 
 		newHeadY = headPosition.y - 1
 
-	} else if (direction == 'right') {
+	} else if (direction ==='right') {
 
 		newHeadX = headPosition.x + 1
 		
-	} else if (direction == 'down') {
+	} else if (direction === 'down') {
 		
 		newHeadY = headPosition.y + 1
 	}
