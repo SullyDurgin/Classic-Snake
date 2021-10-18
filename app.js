@@ -6,7 +6,6 @@
 let snakePositions = []
 let direction = 'right'
 let ratPosition = { x: 0, y: 0 }
-let gameOver = false
 let userInputs = []
 let intervalTime = 0
 let interval = 0
@@ -58,9 +57,10 @@ gameButton.addEventListener('click', startGame)
 
 /*-------------------------------- Functions --------------------------------*/
 
-//first define the required variables to track game state
+//first define the required letiables to track game state
 //store cached elements
 //define required constants
+
 
 init()
 
@@ -85,7 +85,7 @@ function render() {
 	for (const segment of snakePositions) {
 		const cellIndex = segment.x + width * segment.y
 		const snakeCell = cells[cellIndex]
-		snakeCell.style.backgroundColor = 'black' //makes current snake show up
+		snakeCell.style.backgroundColor = 'blue' //makes current snake show up
 	}
 	const ratCellIndex = ratPosition.x + width * ratPosition.y
 	const ratCell = cells[ratCellIndex]
@@ -129,4 +129,29 @@ function move() {
 	snakePositions.unshift({ x: newHeadX, y: newHeadY })
 	snakePositions.pop()
 	render()
+}
+
+
+// function hitBorder() {
+// 	let headPosition = snakePositions.length - 1 // leaves grid
+// 	if (
+// 		(snakePositions[headPosition][0] === gameBoard.cell - 1 &&
+// 			snake.direction === 'right') ||
+// 		(snakePositions[headPosition][0] === 0 && snakePositions.direction === 'left') ||
+// 		(snakePositions[headPosition][1] === gameBoard.cell - 1 &&
+// 			snakePositions.direction === 'down') ||
+// 		(snakePositions[headPosition][1] === 0 && snake.direction === 'up')
+//   )
+// {
+//   return gameOver()
+// } 
+// }
+
+
+
+function hitSelf(x, y) {
+	for (let i = 2; i < snake.length; i++) {
+		if (x == snake[i].x && y == snake[i].y) return true
+	}
+	return false
 }
