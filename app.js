@@ -8,7 +8,6 @@ let direction = 'right'
 let ratPosition = { x: 0, y: 0 }
 let gameOver = false
 let userInputs = []
-let speed = 0.8
 let intervalTime = 0
 let interval = 0
 
@@ -50,10 +49,7 @@ if (event.key === 'ArrowDown') {
   direction = 'down'
   return
 }
-console.log(direction)
 })
-
-
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -96,7 +92,6 @@ function render() {
 
 }
 
-
 function startGame() {
   snakePositions = [
 		{ x: 6, y: 0 },
@@ -108,20 +103,3 @@ function startGame() {
 	intervalTime = 1000
 	interval = setInterval(moveOutcome, intervalTime)
 }
-
-function moveOutcome() {
-	let cells = document.querySelectorAll('.cell')
-		move(cells)
-	}
-
-
-
-  window.tempSnakeRenderTest = function() {
-  snakePositions = [
-		{ x: 11, y: 0 },
-		{ x: 12, y: 0 },
-		{ x: 13, y: 0 },
-		{ x: 14, y: 0 },
-	]
-  render();
-};
