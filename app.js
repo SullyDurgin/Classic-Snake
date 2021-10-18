@@ -1,8 +1,6 @@
 /*-------------------------------- Constants --------------------------------*/
 
-
-
-/*---------------------------- letiables (state) ----------------------------*/ 
+/*---------------------------- letiables (state) ----------------------------*/
 let snakePositions = []
 let direction = 'right'
 let ratPosition = { x: 0, y: 0 }
@@ -21,36 +19,34 @@ const gameBoard = document.querySelector('.game-board')
 const gameStatus = document.querySelectorAll('#message')
 const gameButton = document.querySelector('button')
 
-
 /*----------------------------- Event Listeners -----------------------------*/
 
+window.addEventListener('keydown', function (event) {
+	if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key))
+		//move direction based on key pressed
+		return
 
+	event.preventDefault()
 
-window.addEventListener("keydown", function (event) { 
-  if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key)) //move direction based on key pressed
-  return
+	if (event.key === 'ArrowLeft') {
+		direction = 'left'
+		return
+	}
 
-  event.preventDefault()
-  
-  if (event.key === "ArrowLeft") {
-  direction = 'left'
-  return
-}
+	if (event.key === 'ArrowRight') {
+		direction = 'right'
+		return
+	}
 
-if (event.key === 'ArrowRight') {
-	direction = 'right'
-	return
-}
+	if (event.key === 'ArrowUp') {
+		direction = 'up'
+		return
+	}
 
-if (event.key === 'ArrowUp') {
-  direction = 'up'
-  return
-}
-
-if (event.key === 'ArrowDown') {
-  direction = 'down'
-  return
-}
+	if (event.key === 'ArrowDown') {
+		direction = 'down'
+		return
+	}
 })
 
 gameButton.addEventListener('click', startGame)
@@ -60,7 +56,6 @@ gameButton.addEventListener('click', startGame)
 //first define the required letiables to track game state
 //store cached elements
 //define required constants
-
 
 init()
 
@@ -118,50 +113,33 @@ function move() {
 
 	if (direction === 'left') {
 		newHeadX = headPosition.x - 1
-    
 	} else if (direction === 'up') {
-
 		newHeadY = headPosition.y - 1
-
-	} else if (direction ==='right') {
-
+	} else if (direction === 'right') {
 		newHeadX = headPosition.x + 1
-		
 	} else if (direction === 'down') {
-		
 		newHeadY = headPosition.y + 1
 	}
-if (hitSelf(newHeadX, newHeadY)) {
-	gameOver()
-	return
-}
+	if (hitSelf(newHeadX, newHeadY) || hitBorder(newHeadX, newHeadY)) {
+		gameOver()
+		return
+	}
 
 	snakePositions.unshift({ x: newHeadX, y: newHeadY })
 	snakePositions.pop()
 	render()
 }
 
-  function hitSelf(x, y) {
-		for (let i = 1; i < snakePositions.length; i++) {
-			if (x == snakePositions[i].x && y == snakePositions[i].y) return true
-		}
-		return false
+function hitSelf(x, y) {
+	for (let i = 1; i < snakePositions.length; i++) {
+		if (x == snakePositions[i].x && y == snakePositions[i].y) return true
 	}
-
-function gameOver() {
+	return false
 }
 
-// function hitBorder() {
-// 	let headPosition = snakePositions.length - 1 // leaves grid
-// 	if (
-// 		(snakePositions[headPosition][0] === gameBoard.cell - 1 &&
-// 			snake.direction === 'right') ||
-// 		(snakePositions[headPosition][0] === 0 && snakePositions.direction === 'left') ||
-// 		(snakePositions[headPosition][1] === gameBoard.cell - 1 &&
-// 			snakePositions.direction === 'down') ||
-// 		(snakePositions[headPosition][1] === 0 && snake.direction === 'up')
-//   )
-// {
-//   return gameOver()
-// } 
-// }
+function gameOver() {}
+
+function hitBorder(x, y) {
+	if (x < 0 || x > 19 || y < 0 || y > 19) return true
+	return false
+}
