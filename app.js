@@ -12,7 +12,7 @@ let snakePositions = [
 	{ x: 8, y: 0 },
 	{ x: 9, y: 0 },
 ]
-let moveDirection = 'right'
+let direction = 'right'
 let ratPosition = { x: 0, y: 0 }
 let gameOver = false
 let userInputs = []
@@ -40,26 +40,27 @@ window.addEventListener("keydown", function (event) {
 
   event.preventDefault()
   
-  if (event.key === "left") {
-  moveDirection = 'left'
+  if (event.key === "ArrowLeft") {
+  direction = 'left'
   return
 }
 
-if (event.key === 'right') {
-	moveDirection = 'right'
+if (event.key === 'ArrowRight') {
+	direction = 'right'
 	return
 }
 
-if (event.key === 'up') {
-  moveDirection = 'up'
+if (event.key === 'ArrowUp') {
+  direction = 'up'
   return
 }
 
-if (event.key === 'down') {
-  moveDirection = 'down'
+if (event.key === 'ArrowDown') {
+  direction = 'down'
   return
 }
 })
+
 
 
 
@@ -90,12 +91,12 @@ function init() {
 
 function render() {
   for (let i = 0; i < width * height; i++) {
-		cells[i].style.removeProperty('background-color')
+		cells[i].style.removeProperty('background-color')// makes old snake disappear 
 	}
 	for (const segment of snakePositions) {
 		const cellIndex = segment.x + width * segment.y
 		const snakeCell = cells[cellIndex]
-		snakeCell.style.backgroundColor = 'black'
+		snakeCell.style.backgroundColor = 'black'//makes current snake show up 
 	}
 	const ratCellIndex = ratPosition.x + width * ratPosition.y
 	const ratCell = cells[ratCellIndex]
@@ -104,23 +105,17 @@ function render() {
 }
 
 
-// function startGame() {
-// 	direction = 1
-// 	intervalTime = 1000
-// 	interval = setInterval(moveOutcome, intervalTime)
-// }
+function startGame() {
+	direction = right
+	intervalTime = 1000
+	interval = setInterval(moveOutcome, intervalTime)
+}
 
-// function moveOutcome() {
-// 	let cells = document.querySelectorAll('.cell')
-// 		move(cells)
-// 	}
+function moveOutcome() {
+	let cells = document.querySelectorAll('.cell')
+		move(cells)
+	}
 
-//   function move(cells) {
-//     let tail = snake.pop()
-//     cells[tail].classList.remove('snakeCell')
-//     snake.unshift(snake[0] + direction)
-//     cells[snake[0]].classList.add('snakeCell')
-// 	}
 
 
   window.tempSnakeRenderTest = function() {
