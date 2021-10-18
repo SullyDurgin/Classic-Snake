@@ -80,7 +80,7 @@ function render() {
 	for (const segment of snakePositions) {
 		const cellIndex = segment.x + width * segment.y
 		const snakeCell = cells[cellIndex]
-		snakeCell.style.backgroundColor = 'blue' //makes current snake show up
+		snakeCell.style.backgroundColor = '#bc6c25' //makes current snake show up
 	}
 	const ratCellIndex = ratPosition.x + width * ratPosition.y
 	const ratCell = cells[ratCellIndex]
@@ -88,6 +88,7 @@ function render() {
 }
 
 function startGame() {
+	gameStatus.innerText = ''
 	snakePositions = [
 		{ x: 6, y: 0 },
 		{ x: 7, y: 0 },
