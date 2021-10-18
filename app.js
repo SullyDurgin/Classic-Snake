@@ -59,6 +59,7 @@ window.addEventListener('keydown', function (event) {
 init()
 
 function init() {
+	gameStatus.innerText = ''
 	for (let i = 0; i < width * height; i++) {
 		const inside = document.createElement('div')
 		inside.classList.add('inside')
@@ -126,7 +127,11 @@ function move() {
 	}
 
 	snakePositions.unshift({ x: newHeadX, y: newHeadY })
+	//after move snake onto rat but before draw snake again
+	//if new hit x = rat x and new hit y = rat y then do rat stuff
+	// else snakePositions.pop()
 	snakePositions.pop()
+
 	render()
 }
 
@@ -139,6 +144,7 @@ function hitSelf(x, y) {
 
 function gameOver() {
 	clearInterval(interval)
+	gameStatus.innerText = 'Game Over'
 	render()
 }
 
