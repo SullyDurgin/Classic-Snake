@@ -6,9 +6,17 @@
 let cells 
 let snake 
 let rat
-let snakePosition = [0, 1, 2, 3, 23, 24, 25 ]
-let ratPosition = [90]
+const snakePositions = [
+	{ x: 6, y: 0 },
+	{ x: 7, y: 0 },
+	{ x: 8, y: 0 },
+	{ x: 9, y: 0 },
+]
+let moveDirection = 'right'
+let ratPosition = { x: 0, y: 0 }
 let gameOver = false
+let userInputs = []
+let headPosition
 
 //game board size (number of cells in grid)
 //20x20 gameBoard = 400 cells
@@ -23,6 +31,32 @@ const gameStatus = document.querySelectorAll('#message')
 
 /*----------------------------- Event Listeners -----------------------------*/
 
+window.addEventListener("keydown", function (event) {
+  if (!['left', 'right', 'up', 'down'].includes(event.key))
+  return
+
+  event.preventDefault()
+  
+  if (event.key === "left") {
+  moveDirection = 'left'
+  return
+}
+
+if (event.key === 'right') {
+	moveDirection = 'right'
+	return
+}
+
+if (event.key === 'up') {
+  moveDirection = 'up'
+  return
+}
+
+if (event.key === 'down') {
+  moveDirection = 'down'
+  return
+}
+})
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -51,11 +85,13 @@ function init() {
 
 
 function render() {
-  for (const i of snakePosition) {
-    const snakeCell = cells[i]
-    snakeCell.style.backgroundColor = 'black'
-  } 
-const ratCell = cells[ratPosition]
-ratCell.innerText = '🐀'
-  
+	for (const segment of snakePositions) {
+		const cellIndex = segment.x + width * segment.y
+		const snakeCell = cells[cellIndex]
+		snakeCell.style.backgroundColor = 'black'
+	}
+	const ratCellIndex = ratPosition.x + width * ratPosition.y
+	const ratCell = cells[ratCellIndex]
+	ratCell.innerText = '🐀'
 }
+
