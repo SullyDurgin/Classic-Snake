@@ -2,11 +2,11 @@
 
 
 
-/*---------------------------- letiables (state) ----------------------------*/
-let cells 
-let snake 
+/*---------------------------- letiables (state) ----------------------------*/ 
+let snake = [0,1,2]
 let rat
-const snakePositions = [
+let currentIndex = 0
+let snakePositions = [
 	{ x: 6, y: 0 },
 	{ x: 7, y: 0 },
 	{ x: 8, y: 0 },
@@ -17,6 +17,9 @@ let ratPosition = { x: 0, y: 0 }
 let gameOver = false
 let userInputs = []
 let headPosition
+let speed = 0.8
+let intervalTime = 0
+let interval = 0
 
 //game board size (number of cells in grid)
 //20x20 gameBoard = 400 cells
@@ -59,6 +62,7 @@ if (event.key === 'down') {
 })
 
 
+
 /*-------------------------------- Functions --------------------------------*/
 
 //first define the required variables to track game state
@@ -93,5 +97,36 @@ function render() {
 	const ratCellIndex = ratPosition.x + width * ratPosition.y
 	const ratCell = cells[ratCellIndex]
 	ratCell.innerText = '🐀'
+  currentIndex = 0
+  snake.forEach((index) => cells[index].classList.add('snakeCell'))
 }
 
+
+// function startGame() {
+// 	direction = 1
+// 	intervalTime = 1000
+// 	interval = setInterval(moveOutcome, intervalTime)
+// }
+
+// function moveOutcome() {
+// 	let cells = document.querySelectorAll('.cell')
+// 		move(cells)
+// 	}
+
+//   function move(cells) {
+//     let tail = snake.pop()
+//     cells[tail].classList.remove('snakeCell')
+//     snake.unshift(snake[0] + direction)
+//     cells[snake[0]].classList.add('snakeCell')
+// 	}
+
+
+  window.tempSnakeRenderTest = function() {
+  snakePositions = [
+		{ x: 11, y: 0 },
+		{ x: 12, y: 0 },
+		{ x: 13, y: 0 },
+		{ x: 14, y: 0 },
+	]
+  render();
+};
