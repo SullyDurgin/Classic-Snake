@@ -60,76 +60,69 @@ if (event.key === 'ArrowDown') {
 
 init()
 
-
 function init() {
-  
-  for (let i = 0; i < width * height; i++) {
-	const inside = document.createElement('div')
-	inside.classList.add('inside')
+	for (let i = 0; i < width * height; i++) {
+		const inside = document.createElement('div')
+		inside.classList.add('inside')
 
-	const cell = document.createElement('div')
-  cell.classList.add('cell')
-	cell.appendChild(inside)
-	gameBoard.appendChild(cell)
-  }
-  cells = document.querySelectorAll('.game-board .cell .inside')
-  render()
+		const cell = document.createElement('div')
+		cell.classList.add('cell')
+		cell.appendChild(inside)
+		gameBoard.appendChild(cell)
+	}
+	cells = document.querySelectorAll('.game-board .cell .inside')
+	render()
 }
 
-
 function render() {
-  for (let i = 0; i < width * height; i++) {
-		cells[i].style.removeProperty('background-color')// makes old snake disappear 
+	for (let i = 0; i < width * height; i++) {
+		cells[i].style.removeProperty('background-color') // makes old snake disappear
 	}
 	for (const segment of snakePositions) {
 		const cellIndex = segment.x + width * segment.y
 		const snakeCell = cells[cellIndex]
-		snakeCell.style.backgroundColor = 'black'//makes current snake show up 
+		snakeCell.style.backgroundColor = 'black' //makes current snake show up
 	}
 	const ratCellIndex = ratPosition.x + width * ratPosition.y
 	const ratCell = cells[ratCellIndex]
 	ratCell.innerText = '🐀'
-
 }
 
 function startGame() {
-  snakePositions = [
+	snakePositions = [
 		{ x: 6, y: 0 },
 		{ x: 7, y: 0 },
 		{ x: 8, y: 0 },
 		{ x: 9, y: 0 },
 	]
-	direction = "right"
+	direction = 'right'
 	intervalTime = 1000
 	interval = setInterval(move, intervalTime)
+	render()
 }
 
-// make new function move (that is what you picked in setInterval, in startGame)
 function move() {
-  
-  // grab the head of the snake, like `const headPosition = snakePositions[0];`
-	// declare variables for newHeadX and newHeadY
-	let newHeadX = snakePositions[0].x
-	let newHeadY = snakePositions[0].y
+	const headPosition = snakePositions[0]
+	let newHeadX = headPosition.x
+	let newHeadY = headPosition.y
 
-	// put an if statement for each direction that sets the values of newHeadX and newHeadY based on the
-	// direction.
-  if (direction == 'left') {
-    newHeadX = headPosition.x - 1
-    newHeadY = headPosition.y} 
-	else if (direction == 'up') {
-    newHeadX = headPosition.x - 1 
-    newHeadY = headPosition.y}
-	else if (direction == 'right') {
-    newHeadX = headPosition.x + 1 
-    newHeadY = headPosition.y}
-	else if (direction == 'down') {
-    newHeadX = headPosition.x + 1
-		newHeadY = headPosition.y
-  }
+	if (direction == 'left') {
+		newHeadX = headPosition.x - 1
+    
+	} else if (direction == 'up') {
 
-	// `snakePositions.unshift({ x: newHeadX, y: newHeadY });`
-	// `snakePositions.pop();`
-	// `render();`
-  render()
+		newHeadY = headPosition.y - 1
+
+	} else if (direction == 'right') {
+
+		newHeadX = headPosition.x + 1
+		
+	} else if (direction == 'down') {
+		
+		newHeadY = headPosition.y + 1
+	}
+
+	snakePositions.unshift({ x: newHeadX, y: newHeadY })
+	snakePositions.pop()
+	render()
 }
