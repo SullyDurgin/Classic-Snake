@@ -16,7 +16,7 @@ let height = 20 //cells
 /*------------------------ Cached Element References ------------------------*/
 
 const gameBoard = document.querySelector('.game-board')
-const gameStatus = document.querySelectorAll('#message')
+const gameStatus = document.querySelector('#message')
 const gameButton = document.querySelector('button')
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -143,8 +143,8 @@ function hitSelf(x, y) {
 }
 
 function gameOver() {
-	clearInterval(interval)
 	gameStatus.innerText = 'Game Over'
+	clearInterval(interval)
 	render()
 }
 
