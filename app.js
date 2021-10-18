@@ -3,20 +3,11 @@
 
 
 /*---------------------------- letiables (state) ----------------------------*/ 
-let snake = [0,1,2]
-let rat
-let currentIndex = 0
-let snakePositions = [
-	{ x: 6, y: 0 },
-	{ x: 7, y: 0 },
-	{ x: 8, y: 0 },
-	{ x: 9, y: 0 },
-]
+let snakePositions = []
 let direction = 'right'
 let ratPosition = { x: 0, y: 0 }
 let gameOver = false
 let userInputs = []
-let headPosition
 let speed = 0.8
 let intervalTime = 0
 let interval = 0
@@ -34,8 +25,8 @@ const gameStatus = document.querySelectorAll('#message')
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-window.addEventListener("keydown", function (event) {
-  if (!['left', 'right', 'up', 'down'].includes(event.key))
+window.addEventListener("keydown", function (event) { 
+  if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key)) //move direction based on key pressed
   return
 
   event.preventDefault()
@@ -59,6 +50,7 @@ if (event.key === 'ArrowDown') {
   direction = 'down'
   return
 }
+console.log(direction)
 })
 
 
@@ -106,7 +98,13 @@ function render() {
 
 
 function startGame() {
-	direction = right
+  snakePositions = [
+		{ x: 6, y: 0 },
+		{ x: 7, y: 0 },
+		{ x: 8, y: 0 },
+		{ x: 9, y: 0 },
+	]
+	direction = "right"
 	intervalTime = 1000
 	interval = setInterval(moveOutcome, intervalTime)
 }
