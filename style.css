@@ -20,12 +20,17 @@ h2 {
 }
 
 body.darkMode h2 {
-  color:lightseagreen;
+  color:chartreuse;
 }
 
 button {
-            text-align: center;
+  text-align: center;
 }
+
+.arrows {
+  font-size: 80px;
+}
+
 
 .game-board {
   display: grid;
