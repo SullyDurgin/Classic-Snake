@@ -7,6 +7,7 @@ let ratPosition = { x: 13, y: 13 }
 let userInputs = []
 let intervalTime = 0
 let interval = 0
+let score
 
 //game board size (number of cells in grid)
 //20x20 gameBoard = 400 cells
@@ -18,6 +19,7 @@ let height = 20 //cells
 const gameBoard = document.querySelector('.game-board')
 const gameStatus = document.querySelector('#message')
 const gameButton = document.querySelector('button')
+const gameScore = document.querySelector('#score')
 
 /*----------------------------- Event Listeners -----------------------------*/
 gameButton.addEventListener('click', startGame)
@@ -96,13 +98,12 @@ function startGame() {
 		{ x: 8, y: 0 },
 	]
 	direction = 'left'
-	intervalTime = 500
+	intervalTime = 300
 	interval = setInterval(move, intervalTime)
 	render()
 }
 
 function move() {
-	console.log(snakePositions)
 	const headPosition = snakePositions[0]
 	let newHeadX = headPosition.x
 	let newHeadY = headPosition.y
@@ -148,6 +149,10 @@ function gameOver() {
 	clearInterval(interval)
 	render()
 }
+
+// function gameScore() {
+// 	gameScore.innerText = 'Score'
+// }
 
 function hitBorder(x, y) {
 	if (x < 0 || x > 19 || y < 0 || y > 19) return true
