@@ -93,13 +93,6 @@ function startGame() {
 		{ x: 6, y: 0 },
 		{ x: 7, y: 0 },
 		{ x: 8, y: 0 },
-		{ x: 9, y: 0 },
-		{ x: 10, y: 0 },
-		{ x: 11, y: 0 },
-		{ x: 12, y: 0 },
-		{ x: 13, y: 0 },
-		{ x: 14, y: 0 },
-		{ x: 15, y: 0 },
 	]
 	direction = 'left'
 	intervalTime = 500
@@ -112,7 +105,8 @@ function move() {
 	const headPosition = snakePositions[0]
 	let newHeadX = headPosition.x
 	let newHeadY = headPosition.y
-
+	let ratX = ratPosition.x
+	let ratY = ratPosition.y
 	if (direction === 'left') {
 		newHeadX = headPosition.x - 1
 	} else if (direction === 'up') {
@@ -128,11 +122,12 @@ function move() {
 	}
 
 	snakePositions.unshift({ x: newHeadX, y: newHeadY })
-	//after move snake onto rat but before draw snake again
-	//if new hit x = rat x and new hit y = rat y then do rat stuff
-	// else snakePositions.pop()
-	snakePositions.pop()
 
+	if (newHeadX === ratX && newHeadY === ratY) {
+		snakePositions.splice(0, 1, { x: newHeadX, y: newHeadY })
+	} else {
+		snakePositions.pop()
+	}
 	render()
 }
 
@@ -153,8 +148,3 @@ function hitBorder(x, y) {
 	if (x < 0 || x > 19 || y < 0 || y > 19) return true
 	return false
 }
-
-
-
-
-	
