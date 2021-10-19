@@ -100,7 +100,7 @@ function startGame() {
 		{ x: 8, y: 0 },
 	]
 	direction = 'left'
-	intervalTime = 300
+	intervalTime = 400
 	interval = setInterval(move, intervalTime)
 
 	render()
@@ -164,4 +164,6 @@ function changeColor() {
  
  else {
  
-  document.body.classList.add('darkMode')}}
+  document.body.classList.add('darkMode')
+	} 
+}
