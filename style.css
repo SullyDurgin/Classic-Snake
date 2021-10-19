@@ -4,6 +4,10 @@ body {
   text-align: center;
 }
 
+body.darkMode {
+  background-color: darkblue;
+}
+
 h2 {
     margins: auto;
     text-align: center;
@@ -20,6 +24,10 @@ button {
   grid-template-columns: repeat(20, 20px);
   grid-template-rows: repeat(20, 20px);
 
+}
+
+body.darkMode .game-board {
+  background-color: gray;
 }
 
 .cell {

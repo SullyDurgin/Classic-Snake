@@ -23,7 +23,7 @@ const gameScore = document.querySelector('#score')
 const colorButton = document.querySelector('#color')
 /*----------------------------- Event Listeners -----------------------------*/
 gameButton.addEventListener('click', startGame)
-colorButton.addEventListener('click', changeColor)
+//colorButton.addEventListener('click', changeColor)
 
 window.addEventListener('keydown', function (event) {
 	if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key))
@@ -158,7 +158,8 @@ function hitBorder(x, y) {
 	return false
 }
 
-function changeColor() {
-	document.body.style.backgroundColor = 'purple'
-	render()
+ function changeColor() {
+if (document.getElementById('color').clicked == true) {
+	document.body.classList.add('darkMode')
 }
+ }
