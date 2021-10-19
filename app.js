@@ -3,7 +3,7 @@
 /*---------------------------- letiables (state) ----------------------------*/
 let snakePositions = []
 let direction = 'right'
-let ratPosition = { x: 0, y: 0 }
+let ratPosition = { x: 13, y: 13 }
 let userInputs = []
 let intervalTime = 0
 let interval = 0
@@ -154,14 +154,7 @@ function hitBorder(x, y) {
 	return false
 }
 
-function eatRat() {
-	if (snakePos[0] == ratPosition[0] && snakePositions[1] == ratPosition[1]) {
-		foodPos = [
-			Math.floor(Math.random() * 72) * 10,
-			Math.floor(Math.random() * 48) * 10,
-		]
-		score += 10
-	} else {
-		snakePositions.pop()
-	}
-}
+
+
+
+	
