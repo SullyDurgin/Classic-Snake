@@ -18,11 +18,12 @@ let height = 20 //cells
 
 const gameBoard = document.querySelector('.game-board')
 const gameStatus = document.querySelector('#message')
-const gameButton = document.querySelector('button')
+const gameButton = document.querySelector('#start')
 const gameScore = document.querySelector('#score')
-
+const colorButton = document.querySelector('#color')
 /*----------------------------- Event Listeners -----------------------------*/
 gameButton.addEventListener('click', startGame)
+colorButton.addEventListener('click', changeColor)
 
 window.addEventListener('keydown', function (event) {
 	if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key))
@@ -62,6 +63,7 @@ init()
 
 function init() {
 	gameStatus.innerText = ''
+	gameScore.innerText = 'Score:'
 	for (let i = 0; i < width * height; i++) {
 		const inside = document.createElement('div')
 		inside.classList.add('inside')
@@ -100,6 +102,7 @@ function startGame() {
 	direction = 'left'
 	intervalTime = 300
 	interval = setInterval(move, intervalTime)
+
 	render()
 }
 
@@ -130,10 +133,10 @@ function move() {
 		ratPosition.x = Math.floor(Math.random() * width)
 		ratPosition.y = Math.floor(Math.random() * height)
 		console.log(ratPosition)
-		//ratPosition.pop()
 	} else {
 		snakePositions.pop()
 	}
+	gameScore.innerText = 'Score ' + (snakePositions.length - 3)
 	render()
 }
 
@@ -150,11 +153,12 @@ function gameOver() {
 	render()
 }
 
-// function gameScore() {
-// 	gameScore.innerText = 'Score'
-// }
-
 function hitBorder(x, y) {
 	if (x < 0 || x > 19 || y < 0 || y > 19) return true
 	return false
+}
+
+function changeColor() {
+	document.body.style.backgroundColor = 'purple'
+	render()
 }
