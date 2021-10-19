@@ -7,10 +7,10 @@ let ratPosition = { x: 13, y: 13 }
 let userInputs = []
 let intervalTime = 0
 let interval = 0
-let score = 0
+let score
 let width = 20
 let height = 20
-let highScore = parseInt(localStorage.getItem('highScore'))
+let highScore = parseInt(localStorage.getItem('highScore') || 0)
 
 /*------------------------ Cached Element References ------------------------*/
 
@@ -139,14 +139,18 @@ function move() {
 		snakePositions.splice(0, 1, { x: newHeadX, y: newHeadY })
 		ratPosition.x = Math.floor(Math.random() * width)
 		ratPosition.y = Math.floor(Math.random() * height)
+	
 	} else {
 		snakePositions.pop()
 	}
-	gameScore.innerText = 'Score: ' + snakePositions.length-3
+	const score = snakePositions.length - 3
+	gameScore.innerText = 'Score: ' + score
 	if (score > highScore) {
-		//Whenever your score increases, compare it with the high score variable, and if it's larger, both update that variable (so it can continue to rise) and update storage
+		//Whenever your score increases, compare it with the highScore variable, and if it's larger, both update that variable (so it can continue to rise) and update storage
 		highScore = score
 		localStorage.setItem('highScore', score)
+		console.log(highScore)
+		
 	}
 	render()
 }
@@ -175,6 +179,5 @@ function changeColor() {
 		document.body.classList.remove('darkMode')
 	} else {
 		document.body.classList.add('darkMode')
-		document.snakeCell.style.setProperty('color', 'pink')
 	}
 }
