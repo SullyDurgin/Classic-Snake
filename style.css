@@ -56,5 +56,5 @@ button {
 }
 
 body.darkMode .inside {
-  background-color: #fefae0;
+  background-color: darkred;
 }

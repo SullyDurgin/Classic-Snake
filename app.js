@@ -7,12 +7,10 @@ let ratPosition = { x: 13, y: 13 }
 let userInputs = []
 let intervalTime = 0
 let interval = 0
-let score
-
-//game board size (number of cells in grid)
-//20x20 gameBoard = 400 cells
-let width = 20 //cells
-let height = 20 //cells
+let score = 0
+let width = 20
+let height = 20
+let highScore = parseInt(localStorage.getItem('highScore'))
 
 /*------------------------ Cached Element References ------------------------*/
 
@@ -26,10 +24,23 @@ gameButton.addEventListener('click', startGame)
 colorButton.addEventListener('click', changeColor)
 
 window.addEventListener('keydown', function (event) {
-	if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key))
+	if (
+		!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', ' '].includes(
+			event.key
+		)
+	)
 		return
 
+	if (event.key === ' ') {
+		startGame()
+		return
+	}
+
 	event.preventDefault()
+	if (event.key === ' ') {
+		startGame()
+		return
+	}
 
 	if (event.key === 'ArrowLeft') {
 		direction = 'left'
@@ -88,6 +99,7 @@ function render() {
 }
 
 function startGame() {
+	clearInterval(interval) //stops from starting multiple timers
 	gameStatus.innerText = ''
 	snakePositions = [
 		{ x: 6, y: 0 },
@@ -127,13 +139,18 @@ function move() {
 		snakePositions.splice(0, 1, { x: newHeadX, y: newHeadY })
 		ratPosition.x = Math.floor(Math.random() * width)
 		ratPosition.y = Math.floor(Math.random() * height)
-		console.log(ratPosition)
 	} else {
 		snakePositions.pop()
 	}
-	gameScore.innerText = 'Score: ' + (snakePositions.length - 3)
+	gameScore.innerText = 'Score: ' + snakePositions.length-3
+	if (score > highScore) {
+		//Whenever your score increases, compare it with the high score variable, and if it's larger, both update that variable (so it can continue to rise) and update storage
+		highScore = score
+		localStorage.setItem('highScore', score)
+	}
 	render()
 }
+
 
 function hitSelf(x, y) {
 	for (let i = 1; i < snakePositions.length; i++) {
