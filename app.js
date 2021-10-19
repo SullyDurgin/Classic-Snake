@@ -27,7 +27,6 @@ colorButton.addEventListener('click', changeColor)
 
 window.addEventListener('keydown', function (event) {
 	if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key))
-		//move direction based on key pressed
 		return
 
 	event.preventDefault()
@@ -55,10 +54,6 @@ window.addEventListener('keydown', function (event) {
 
 /*-------------------------------- Functions --------------------------------*/
 
-//first define the required letiables to track game state
-//store cached elements
-//define required constants
-
 init()
 
 function init() {
@@ -84,8 +79,8 @@ function render() {
 	}
 	for (const segment of snakePositions) {
 		const cellIndex = segment.x + width * segment.y
-		const snakeCell = cells[cellIndex];
-		snakeCell.style.backgroundColor = "var(--snake-color)" //makes current snake show up
+		const snakeCell = cells[cellIndex]
+		snakeCell.style.backgroundColor = 'var(--snake-color)' //makes current snake show up
 	}
 	const ratCellIndex = ratPosition.x + width * ratPosition.y
 	const ratCell = cells[ratCellIndex]
@@ -159,12 +154,10 @@ function hitBorder(x, y) {
 }
 
 function changeColor() {
-		if (document.body.classList.contains('darkMode')) {document.body.classList.remove('darkMode')
- } 
- 
- else {
- 
-  document.body.classList.add('darkMode')
-	document.snakeCell.style.setProperty('color', 'pink')
-	} 
+	if (document.body.classList.contains('darkMode')) {
+		document.body.classList.remove('darkMode')
+	} else {
+		document.body.classList.add('darkMode')
+		document.snakeCell.style.setProperty('color', 'pink')
+	}
 }
