@@ -125,6 +125,8 @@ function move() {
 
 	if (newHeadX === ratX && newHeadY === ratY) {
 		snakePositions.splice(0, 1, { x: newHeadX, y: newHeadY })
+		ratPosition.x = Math.floor(Math.random() * width)
+		ratPosition.y = Math.floor(Math.random() * height)
 	} else {
 		snakePositions.pop()
 	}
