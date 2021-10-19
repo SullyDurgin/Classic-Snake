@@ -27,10 +27,14 @@ button {
   text-align: center;
 }
 
-.arrows {
-  font-size: 80px;
+#directions {
+  font-size: 12px;
+  color: blue;
 }
 
+body.darkMode #directions {
+  color: white;
+}
 
 .game-board {
   display: grid;
