@@ -85,7 +85,7 @@ function render() {
 	for (const segment of snakePositions) {
 		const cellIndex = segment.x + width * segment.y
 		const snakeCell = cells[cellIndex]
-		snakeCell.style.backgroundColor = 'black' //makes current snake show up
+		snakeCell.style.backgroundColor = '#6305dc' //makes current snake show up
 	}
 	const ratCellIndex = ratPosition.x + width * ratPosition.y
 	const ratCell = cells[ratCellIndex]
@@ -100,7 +100,7 @@ function startGame() {
 		{ x: 8, y: 0 },
 	]
 	direction = 'left'
-	intervalTime = 400
+	intervalTime = 300
 	interval = setInterval(move, intervalTime)
 
 	render()
@@ -136,7 +136,7 @@ function move() {
 	} else {
 		snakePositions.pop()
 	}
-	gameScore.innerText = 'Score ' + (snakePositions.length - 3)
+	gameScore.innerText = 'Score: ' + (snakePositions.length - 3)
 	render()
 }
 
@@ -165,5 +165,6 @@ function changeColor() {
  else {
  
   document.body.classList.add('darkMode')
+	document.snakeCell.style.setProperty('color', 'pink')
 	} 
 }
