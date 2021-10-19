@@ -1,6 +1,9 @@
 
 body {
-  background-color: #fefae0;
+  /* background-image: url("https://i.ibb.co/qpJPhbz/Screen-Shot-2021-10-19-at-9-38-18-AM.png");
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: 35%; */
   height: 100%;
   text-align: center;
 }
@@ -18,8 +21,9 @@ button {
 .game-board {
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(20, 20px);
-  grid-template-rows: repeat(20, 20px);
+  grid-template-columns: repeat(20, 10px);
+  grid-template-rows: repeat(20, 10px);
+  border-color: cadetblue;
 
 }
 
@@ -27,7 +31,7 @@ button {
   position: relative;
   width: 100%;
   height: 100%;
-  border: 2px dotted #283618;
+  border-color: cadetblue;
  
 }
 
@@ -36,7 +40,7 @@ button {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #606c38;
+  
 }
 
 .ratcell {

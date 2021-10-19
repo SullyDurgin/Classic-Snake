@@ -80,7 +80,7 @@ function render() {
 	for (const segment of snakePositions) {
 		const cellIndex = segment.x + width * segment.y
 		const snakeCell = cells[cellIndex]
-		snakeCell.style.backgroundColor = '#bc6c25' //makes current snake show up
+		snakeCell.style.backgroundColor = 'black' //makes current snake show up
 	}
 	const ratCellIndex = ratPosition.x + width * ratPosition.y
 	const ratCell = cells[ratCellIndex]
@@ -152,4 +152,16 @@ function gameOver() {
 function hitBorder(x, y) {
 	if (x < 0 || x > 19 || y < 0 || y > 19) return true
 	return false
+}
+
+function eatRat() {
+	if (snakePos[0] == ratPosition[0] && snakePositions[1] == ratPosition[1]) {
+		foodPos = [
+			Math.floor(Math.random() * 72) * 10,
+			Math.floor(Math.random() * 48) * 10,
+		]
+		score += 10
+	} else {
+		snakePositions.pop()
+	}
 }
