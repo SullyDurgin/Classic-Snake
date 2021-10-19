@@ -84,8 +84,8 @@ function render() {
 	}
 	for (const segment of snakePositions) {
 		const cellIndex = segment.x + width * segment.y
-		const snakeCell = cells[cellIndex]
-		snakeCell.style.backgroundColor = '#6305dc' //makes current snake show up
+		const snakeCell = cells[cellIndex];
+		snakeCell.style.backgroundColor = "var(--snake-color)" //makes current snake show up
 	}
 	const ratCellIndex = ratPosition.x + width * ratPosition.y
 	const ratCell = cells[ratCellIndex]

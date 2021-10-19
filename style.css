@@ -3,11 +3,13 @@ body {
   color: blue;
   height: 100%;
   text-align: center;
+   --snake-color: green;
 }
 
 body.darkMode {
   background-color: darkblue;
   color:chartreuse;
+  --snake-color: #000;
 }
 
 h2 {
