@@ -18,6 +18,7 @@ const gameBoard = document.querySelector('.game-board')
 const gameStatus = document.querySelector('#message')
 const gameButton = document.querySelector('#start')
 const gameScore = document.querySelector('#score')
+const gameHighScore = document.querySelector('#highscore')
 const colorButton = document.querySelector('#color')
 /*----------------------------- Event Listeners -----------------------------*/
 gameButton.addEventListener('click', startGame)
@@ -145,12 +146,13 @@ function move() {
 	}
 	const score = snakePositions.length - 3
 	gameScore.innerText = 'Score: ' + score
+	gameHighScore.innerText = 'High Score: ' + highScore
 	if (score > highScore) {
 		//Whenever your score increases, compare it with the highScore variable, and if it's larger, both update that variable (so it can continue to rise) and update storage
 		highScore = score
 		localStorage.setItem('highScore', score)
 		console.log(highScore)
-		
+	
 	}
 	render()
 }
