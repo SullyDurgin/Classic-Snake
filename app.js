@@ -2,7 +2,7 @@
 
 /*---------------------------- letiables (state) ----------------------------*/
 let snakePositions = []
-let direction = 'right'
+let direction
 let ratPosition = { x: 13, y: 13 }
 let userInputs = []
 let intervalTime = 0
@@ -76,6 +76,7 @@ function init() {
 function render() {
 	for (let i = 0; i < width * height; i++) {
 		cells[i].style.removeProperty('background-color') // makes old snake disappear
+		cells[i].innerText = ''
 	}
 	for (const segment of snakePositions) {
 		const cellIndex = segment.x + width * segment.y
@@ -127,6 +128,8 @@ function move() {
 		snakePositions.splice(0, 1, { x: newHeadX, y: newHeadY })
 		ratPosition.x = Math.floor(Math.random() * width)
 		ratPosition.y = Math.floor(Math.random() * height)
+		console.log(ratPosition)
+		//ratPosition.pop()
 	} else {
 		snakePositions.pop()
 	}
