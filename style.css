@@ -17,7 +17,9 @@ body.darkMode {
 
 .buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  flex-direction: row;
+  
 }
 
 .scores {
@@ -46,6 +48,7 @@ body.darkMode h2 {
 
 #start {
   opacity: 0;
+  
 }
 
 #space-start {
@@ -131,6 +134,17 @@ body.darkMode h2 {
 
 #color {
   text-align: center;
+  background-color: purple;
+  border: none;
+  border-radius: 30%;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
 #directions {
@@ -154,6 +168,20 @@ body.darkMode #directions {
   border: double 15px purple;
   border-radius: 5px;
 
+}
+
+#start {
+  background-color: purple;
+  border: none;
+  border-radius: 30%;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
 body.darkMode .game-board {
