@@ -1,10 +1,11 @@
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 700px) {
 
 body {
   font-family: monospace;
   background-color: #e5e5f7;
   height: 100%;
   text-align: center;
+  overflow: hidden;
    --snake-color: green;
 }
 
@@ -13,6 +14,16 @@ body.darkMode {
   color:chartreuse;
   --snake-color: #291749;
 } 
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.scores {
+  display: flex;
+  justify-content: space-around;
+}
 
 h2 {
     margins: auto;
@@ -32,19 +43,20 @@ body.darkMode h2 {
   color:chartreuse;
 }
 
-#color {
-  text-align: center;
-}
 
 #start {
   opacity: 0;
 }
 
-#instructions {
+#space-start {
+  display: block;
   font-size: 30px;
   text-align: center;
 }
 
+.directions {
+  text-decoration: none;
+}
 
 .game-board {
   display: grid;
@@ -167,9 +179,12 @@ body.darkMode .inside {
   background-color: purple;
 } 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
 
-
+.scores {
+  display: flex;
+  justify-content: space-around;
+}
 
 .game-board {
   display: grid;
@@ -267,7 +282,7 @@ grid-row-gap: 0px;
 }
 
 
-#instructions {
+#space-start {
   opacity: 0;
 }
 

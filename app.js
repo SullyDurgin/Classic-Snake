@@ -20,7 +20,7 @@ const gameButton = document.querySelector('#start')
 const gameScore = document.querySelector('#score')
 const gameHighScore = document.querySelector('#highscore')
 const colorButton = document.querySelector('#color')
-const spaceStart = document.querySelector('#instructions')
+const spaceStart = document.querySelector('#space-start')
 /*----------------------------- Event Listeners -----------------------------*/
 gameButton.addEventListener('click', startGame)
 colorButton.addEventListener('click', changeColor)
@@ -82,6 +82,7 @@ init()
 
 function init() {
 	gameScore.innerText = 'Score:'
+	gameHighScore.innerText = 'High Score: ' + highScore
 	for (let i = 0; i < width * height; i++) {
 		const inside = document.createElement('div')
 		inside.classList.add('inside')
