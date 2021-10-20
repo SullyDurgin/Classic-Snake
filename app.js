@@ -38,10 +38,7 @@ window.addEventListener('keydown', function (event) {
 	}
 
 	event.preventDefault()
-	if (event.key === ' ') {
-		startGame()
-		return
-	}
+
 
 	if (event.key === 'ArrowLeft') {
 		direction = 'left'
@@ -63,6 +60,25 @@ window.addEventListener('keydown', function (event) {
 		return
 	}
 })
+
+
+//mobile keys
+
+
+document.getElementById('up').addEventListener('click', function () {
+	direction = 'up'
+})
+document.getElementById('down').addEventListener('click', function () {
+	direction = 'down'
+})
+document.getElementById('left').addEventListener('click', function () {
+	direction = 'left'
+})
+document.getElementById('right').addEventListener('click', function () {
+	direction = 'right'
+})
+
+
 
 /*-------------------------------- Functions --------------------------------*/
 
@@ -107,7 +123,7 @@ function startGame() {
 		{ x: 7, y: 0 },
 		{ x: 8, y: 0 },
 	]
-	direction = 'left'
+	direction = 'down'
 	intervalTime = 300
 	interval = setInterval(move, intervalTime)
 
