@@ -9,7 +9,7 @@ body {
 body.darkMode {
   background-color: black;
   color:chartreuse;
-  --snake-color: red;
+  --snake-color: #291749;
 }
 
 h2 {
