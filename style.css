@@ -1,22 +1,28 @@
 body {
-  background-color: #fefae0;
-  color: blue;
+  font-family: monospace;
+  background-color: #e5e5f7;
   height: 100%;
   text-align: center;
    --snake-color: green;
 }
 
 body.darkMode {
-  background-color: darkblue;
+  background-color: black;
   color:chartreuse;
-  --snake-color: #000;
+  --snake-color: red;
 }
 
 h2 {
     margins: auto;
     text-align: center;
-    font-size: 40px;
-    color: darkblue;
+    font-size: 30px;
+    color: black;
+}
+
+h3 {
+  font-size: 15px;
+  display: inline;
+  margin-inline-start: 20px;
 }
 
 body.darkMode h2 {
@@ -28,8 +34,10 @@ button {
 }
 
 #directions {
-  font-size: 12px;
-  color: blue;
+  display: block;
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
 }
 
 body.darkMode #directions {
@@ -41,7 +49,15 @@ body.darkMode #directions {
   justify-content: center;
   grid-template-columns: repeat(20, 20px);
   grid-template-rows: repeat(20, 20px);
+  width: 400px;
+  margin: auto;
+  border: double 15px purple;
+  border-radius: 5px;
 
+}
+
+body.darkMode .game-board {
+  border: double 15px chartreuse;
 }
 
 
@@ -60,5 +76,5 @@ body.darkMode #directions {
 }
 
 body.darkMode .inside {
-  background-color: darkred;
+  background-color: purple;
 }

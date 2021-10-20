@@ -69,7 +69,7 @@ window.addEventListener('keydown', function (event) {
 init()
 
 function init() {
-	gameStatus.innerText = ''
+	gameStatus.innerText = 'Click Button or Press Space Bar to Start Game'
 	gameScore.innerText = 'Score:'
 	for (let i = 0; i < width * height; i++) {
 		const inside = document.createElement('div')
@@ -100,8 +100,8 @@ function render() {
 }
 
 function startGame() {
-	clearInterval(interval) //stops from starting multiple timers
 	gameStatus.innerText = ''
+	clearInterval(interval) //stops from starting multiple timers
 	snakePositions = [
 		{ x: 6, y: 0 },
 		{ x: 7, y: 0 },
