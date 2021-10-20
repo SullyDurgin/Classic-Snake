@@ -18,7 +18,7 @@ body.darkMode {
 .buttons {
   display: flex;
   justify-content: center;
-  flex-direction: row;
+  flex-direction: column;
   
 }
 
@@ -50,6 +50,7 @@ body.darkMode h2 {
   opacity: 0;
   
 }
+
 
 #space-start {
   display: block;
