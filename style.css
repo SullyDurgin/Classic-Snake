@@ -1,3 +1,91 @@
+@media only screen and (min-width: 768px) {
+
+body {
+  font-family: monospace;
+  background-color: #e5e5f7;
+  height: 100%;
+  text-align: center;
+   --snake-color: green;
+}
+
+body.darkMode {
+  background-color: black;
+  color:chartreuse;
+  --snake-color: #291749;
+} 
+
+h2 {
+    margins: auto;
+    text-align: center;
+    font-size: 30px;
+    color: black;
+}
+
+h3 {
+  font-size: 15px;
+  display: inline-block;
+  text-align: center;
+  margin-inline-start: 20px;
+}
+
+body.darkMode h2 {
+  color:chartreuse;
+}
+
+#color {
+  text-align: center;
+}
+
+#start {
+  opacity: 0;
+}
+
+#instructions {
+  font-size: 30px;
+  text-align: center;
+}
+
+
+.game-board {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(20, 20px);
+  grid-template-rows: repeat(20, 20px);
+  width: 400px;
+  margin: auto;
+  border: double 15px purple;
+  border-radius: 5px;
+
+}
+
+body.darkMode .game-board {
+  border: double 15px chartreuse;
+}
+
+
+.cell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+ 
+}
+
+.inside {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: lightgreen;
+}
+
+body.darkMode .inside {
+  background-color: purple;
+} 
+
+.mobile {
+  opacity: 0;
+}
+}
+
 body {
   font-family: monospace;
   background-color: #e5e5f7;
@@ -83,6 +171,35 @@ body.darkMode .inside {
   background-color: purple;
 } 
 
+@media only screen and (max-width: 600px) {
+
+
+.game-board {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(20, 20px);
+  grid-template-rows: repeat(20, 20px);
+  width: relative;
+  margin: auto;
+  border: double 15px purple;
+  border-radius: 5px;
+
+}
+
+.cell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+ 
+}
+
+.inside {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: lightgreen;
+}
+
 
 .mobile {
 display: grid;
@@ -92,7 +209,69 @@ grid-column-gap: 0px;
 grid-row-gap: 0px;
 }
 
-.left { grid-area: 3 / 2 / 4 / 3; }
-.right { grid-area: 3 / 4 / 4 / 5; }
-.up{ grid-area: 2 / 3 / 3 / 4; }
-.down { grid-area: 4 / 3 / 5 / 4; }
+.left { 
+  background-color: purple;
+  border: none;
+  border-radius: 20%;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 46px;
+  margin: 4px 2px;
+  cursor: pointer;
+  grid-area: 3 / 2 / 4 / 3; 
+}
+
+.right {
+  background-color: purple;
+  border: none;
+  border-radius: 20%;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 46px;
+  margin: 4px 2px;
+  cursor: pointer; 
+  grid-area: 3 / 4 / 4 / 5; 
+}
+
+.up {
+  background-color: purple;
+  border: none;
+  border-radius: 20%;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 46px;
+  margin: 4px 2px;
+  cursor: pointer; 
+  grid-area: 2 / 3 / 3 / 4; 
+}
+
+.down { 
+  background-color: purple;
+  border: none;
+  border-radius: 20%;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 46px;
+  margin: 4px 2px;
+  cursor: pointer;
+  grid-area: 4 / 3 / 5 / 4; 
+}
+
+
+#instructions {
+  opacity: 0;
+}
+
+}

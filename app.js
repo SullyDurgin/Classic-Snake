@@ -20,6 +20,7 @@ const gameButton = document.querySelector('#start')
 const gameScore = document.querySelector('#score')
 const gameHighScore = document.querySelector('#highscore')
 const colorButton = document.querySelector('#color')
+const spaceStart = document.querySelector('#instructions')
 /*----------------------------- Event Listeners -----------------------------*/
 gameButton.addEventListener('click', startGame)
 colorButton.addEventListener('click', changeColor)
@@ -38,7 +39,6 @@ window.addEventListener('keydown', function (event) {
 	}
 
 	event.preventDefault()
-
 
 	if (event.key === 'ArrowLeft') {
 		direction = 'left'
@@ -61,9 +61,7 @@ window.addEventListener('keydown', function (event) {
 	}
 })
 
-
 //mobile keys
-
 
 document.getElementById('up').addEventListener('click', function () {
 	direction = 'up'
@@ -78,14 +76,11 @@ document.getElementById('right').addEventListener('click', function () {
 	direction = 'right'
 })
 
-
-
 /*-------------------------------- Functions --------------------------------*/
 
 init()
 
 function init() {
-	gameStatus.innerText = 'Click Button or Press Space Bar to Start Game'
 	gameScore.innerText = 'Score:'
 	for (let i = 0; i < width * height; i++) {
 		const inside = document.createElement('div')
@@ -116,6 +111,7 @@ function render() {
 }
 
 function startGame() {
+	spaceStart.innerText = ''
 	gameStatus.innerText = ''
 	clearInterval(interval) //stops from starting multiple timers
 	snakePositions = [
@@ -156,7 +152,6 @@ function move() {
 		snakePositions.splice(0, 1, { x: newHeadX, y: newHeadY })
 		ratPosition.x = Math.floor(Math.random() * width)
 		ratPosition.y = Math.floor(Math.random() * height)
-	
 	} else {
 		snakePositions.pop()
 	}
@@ -168,11 +163,9 @@ function move() {
 		highScore = score
 		localStorage.setItem('highScore', score)
 		console.log(highScore)
-	
 	}
 	render()
 }
-
 
 function hitSelf(x, y) {
 	for (let i = 1; i < snakePositions.length; i++) {
@@ -183,6 +176,7 @@ function hitSelf(x, y) {
 
 function gameOver() {
 	gameStatus.innerText = 'Game Over'
+	spaceStart.innerText = 'Hit Space Bar to Restart'
 	clearInterval(interval)
 	render()
 }
