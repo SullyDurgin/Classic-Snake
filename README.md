@@ -10,9 +10,11 @@ Screenshot(s):
 ![Mobile- light mode](https://i.ibb.co/VJjHzLv/Screen-Shot-2021-10-21-at-9-57-00-AM.png)
 ![Mobile- dark mode](https://i.ibb.co/1r4jWCb/Screen-Shot-2021-10-21-at-9-57-15-AM.png)
 
-Technologies Used: List of the technologies used, for example: JavaScript, HTML, CSS
+Technologies Used: JavaScript, HTML, CSS
 
-Next Steps: Planned future enhancements (icebox items).
+Next Steps: 
+  - add a start screen
+  - add hard mode
 
 Wireframes:
 
