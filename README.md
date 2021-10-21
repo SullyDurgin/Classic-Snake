@@ -33,6 +33,7 @@ The player attempts to eat rat by running into them with the head of the snake. 
   - add a start screen
   - add hard mode
   - add lives to lose
+  - all time high score
 
 ## Wireframes:
 
