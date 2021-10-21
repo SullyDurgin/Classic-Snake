@@ -1,6 +1,3 @@
-/*-------------------------------- Constants --------------------------------*/
-
-/*---------------------------- letiables (state) ----------------------------*/
 let snakePositions = []
 let direction
 let ratPosition = { x: 13, y: 13 }
@@ -11,10 +8,8 @@ let score
 let width = 20
 let height = 20
 let highScore = parseInt(localStorage.getItem('highScore') || 0)
-const gameOverSound = new Audio ("../audio/gameover.mp3")
-const eatRatSound = new Audio ("../audio/nomnoise.mp3")
-
-
+const gameOverSound = new Audio('../audio/gameover.mp3')
+const eatRatSound = new Audio('../audio/nomnoise.mp3')
 
 /*------------------------ Cached Element References ------------------------*/
 
@@ -27,6 +22,7 @@ const colorButton = document.querySelector('#color')
 const spaceStart = document.querySelector('#space-start')
 
 /*----------------------------- Event Listeners -----------------------------*/
+
 gameButton.addEventListener('click', startGame)
 colorButton.addEventListener('click', changeColor)
 
@@ -155,8 +151,8 @@ function move() {
 	snakePositions.unshift({ x: newHeadX, y: newHeadY })
 
 	if (newHeadX === ratX && newHeadY === ratY) {
-			eatRatSound.volume = 0.5
-			eatRatSound.play()
+		eatRatSound.volume = 0.5
+		eatRatSound.play()
 		snakePositions.splice(0, 1, { x: newHeadX, y: newHeadY })
 		ratPosition.x = Math.floor(Math.random() * width)
 		ratPosition.y = Math.floor(Math.random() * height)
