@@ -5,9 +5,9 @@ body {
   font-family: 'Courier New', Courier, monospace;
   background-color: #e5e5f7;
   height: 100%;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: bold;
   text-align: center;
-  overflow: hidden;
   color: darkmagenta;
    --snake-color: green;
 }
@@ -18,8 +18,6 @@ body.darkMode {
   --snake-color: #291749;
 } 
 
-
-  
 
 h3 {
   font-size: 15px;

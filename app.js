@@ -82,7 +82,7 @@ document.getElementById('right').addEventListener('click', function () {
 init()
 
 function init() {
-	gameScore.innerText = '🐁 Score:'
+	gameScore.innerText = '🐁  Score:'
 	gameHighScore.innerText = '🏆 High Score: ' + highScore
 	for (let i = 0; i < width * height; i++) {
 		const inside = document.createElement('div')
@@ -109,7 +109,7 @@ function render() {
 	}
 	const ratCellIndex = ratPosition.x + width * ratPosition.y
 	const ratCell = cells[ratCellIndex]
-	ratCell.innerText = '🐁'
+	ratCell.innerText = '🐁 '
 }
 
 function startGame() {
@@ -160,7 +160,7 @@ function move() {
 		snakePositions.pop()
 	}
 	const score = snakePositions.length - 3
-	gameScore.innerText = '🐁 Score: ' + score
+	gameScore.innerText = '🐁  Score: ' + score
 	gameHighScore.innerText = '🏆 High Score: ' + highScore
 	if (score > highScore) {
 		//Whenever your score increases, compare it with the highScore variable, and if it's larger, both update that variable (so it can continue to rise) and update storage
