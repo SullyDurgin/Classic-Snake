@@ -11,7 +11,7 @@ https://sullys-snake.netlify.app/
 
 | Desktop (light mode)                                                                     | Desktop (dark mode)                                                 |
 |------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
-|![Desktop- light mode](https://i.ibb.co/hLqDP42/Screen-Shot-2021-10-21-at-2-48-18-PM.png)|![Desktop- dark mode](https://i.ibb.co/Qkps7fQ/Screen-Shot-2021-10-21-at-2-47-57-PM.png)|
+|![Desktop- light mode](https://i.ibb.co/5GStzjc/Screen-Shot-2021-10-21-at-4-58-25-PM.png)|![Desktop- dark mode](https://i.ibb.co/Kj3dccZ/Screen-Shot-2021-10-21-at-4-59-08-PM.png)|
 
 
 | Mobile (light mode)                                                                      | Mobile (dark mode)                                                                      |
