@@ -11,7 +11,9 @@ let score
 let width = 20
 let height = 20
 let highScore = parseInt(localStorage.getItem('highScore') || 0)
-const sound = new Audio ("../audio/gameover.mp3")
+const gameOverSound = new Audio ("../audio/gameover.mp3")
+const eatRatSound = new Audio ("../audio/nomnoise.mp3")
+
 
 
 /*------------------------ Cached Element References ------------------------*/
@@ -153,6 +155,8 @@ function move() {
 	snakePositions.unshift({ x: newHeadX, y: newHeadY })
 
 	if (newHeadX === ratX && newHeadY === ratY) {
+			eatRatSound.volume = 0.5
+			eatRatSound.play()
 		snakePositions.splice(0, 1, { x: newHeadX, y: newHeadY })
 		ratPosition.x = Math.floor(Math.random() * width)
 		ratPosition.y = Math.floor(Math.random() * height)
@@ -179,8 +183,8 @@ function hitSelf(x, y) {
 }
 
 function gameOver() {
-	sound.volume = 0.3
-	sound.play()
+	gameOverSound.volume = 0.3
+	gameOverSound.play()
 	gameStatus.innerText = 'Game Over'
 	spaceStart.innerText = 'Hit Space Bar to Restart'
 	clearInterval(interval)
