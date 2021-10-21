@@ -11,6 +11,8 @@ let score
 let width = 20
 let height = 20
 let highScore = parseInt(localStorage.getItem('highScore') || 0)
+const sound = new Audio ("../audio/gameover.mp3")
+
 
 /*------------------------ Cached Element References ------------------------*/
 
@@ -21,6 +23,7 @@ const gameScore = document.querySelector('#score')
 const gameHighScore = document.querySelector('#highscore')
 const colorButton = document.querySelector('#color')
 const spaceStart = document.querySelector('#space-start')
+
 /*----------------------------- Event Listeners -----------------------------*/
 gameButton.addEventListener('click', startGame)
 colorButton.addEventListener('click', changeColor)
@@ -176,6 +179,8 @@ function hitSelf(x, y) {
 }
 
 function gameOver() {
+	sound.volume = 0.3
+	sound.play()
 	gameStatus.innerText = 'Game Over'
 	spaceStart.innerText = 'Hit Space Bar to Restart'
 	clearInterval(interval)
