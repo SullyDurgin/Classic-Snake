@@ -4,8 +4,13 @@
 Getting Started: https://sullys-snake.netlify.app/
 
 Screenshot(s): 
+| Desktop (light mode)                                                                     |
+|------------------------------------------------------------------------------------------|
+|![Desktop- light mode](https://i.ibb.co/WKYsxnL/Screen-Shot-2021-10-21-at-10-07-16-AM.png)|
+| 
+|
+|
 
-![Desktop- light mode](https://i.ibb.co/WKYsxnL/Screen-Shot-2021-10-21-at-10-07-16-AM.png)
 ![Desktop- dark mode](https://i.ibb.co/VYBz957/Screen-Shot-2021-10-21-at-10-08-09-AM.png)
 ![Mobile- light mode](https://i.ibb.co/VJjHzLv/Screen-Shot-2021-10-21-at-9-57-00-AM.png)
 ![Mobile- dark mode](https://i.ibb.co/1r4jWCb/Screen-Shot-2021-10-21-at-9-57-15-AM.png)
