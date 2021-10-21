@@ -264,7 +264,7 @@ grid-row-gap: 0px;
   grid-area: 3 / 2 / 4 / 3; 
 }
 
-#left:hover {
+#left:focus {
   background-color: rebeccapurple;
 }
 
@@ -285,7 +285,7 @@ grid-row-gap: 0px;
   grid-area: 3 / 4 / 4 / 5; 
 }
 
-#right:hover {
+#right:focus {
   background-color: rebeccapurple;
 }
 
@@ -305,7 +305,7 @@ grid-row-gap: 0px;
   grid-area: 2 / 3 / 3 / 4; 
 }
 
-#up:hover {
+#up:focus {
   background-color: rebeccapurple;
 }
 
@@ -325,7 +325,7 @@ grid-row-gap: 0px;
   grid-area: 4 / 3 / 5 / 4; 
 }
 
-#down:hover {
+#down:focus {
   background-color: rebeccapurple;
 }
 
